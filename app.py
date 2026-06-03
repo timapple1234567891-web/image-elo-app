@@ -96,13 +96,17 @@ B = st.session_state.B
 
 def show_model(model_name):
     path = os.path.join(IMAGE_FOLDER, model_name)
+
     imgs = os.listdir(path)
 
-if len(imgs) > IMAGES_PER_MODEL:
-    imgs = random.sample(imgs, IMAGES_PER_MODEL)
+    if len(imgs) > IMAGES_PER_MODEL:
+        imgs = random.sample(imgs, IMAGES_PER_MODEL)
 
     for img in imgs:
-        st.image(os.path.join(path, img), use_container_width=True)
+        st.image(
+            os.path.join(path, img),
+            use_container_width=True
+        )
 
 
 # ----------------------------
